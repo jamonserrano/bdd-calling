@@ -1,7 +1,7 @@
 {
   "name": "karma-calling",
   "version": "0.1.0",
-  "description": "Call functions in BDD-style assertions",
+  "description": "Test function parameters and errors in BDD-style assertions",
   "main": "index.js",
   "repository": {
     "type": "git",
