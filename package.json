@@ -1,0 +1,25 @@
+{
+  "name": "karma-calling",
+  "version": "0.1.0",
+  "description": "Call functions in BDD-style assertions",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "https://jamonserrano@github.com/jamonserrano/karma-calling.git"
+  },
+  "keywords": [
+    "BDD",
+    "expect",
+    "should",
+    "function",
+    "call",
+    "apply",
+    "arguments"
+  ],
+  "author": "Viktor Honti",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/jamonserrano/karma-calling/issues"
+  },
+  "homepage": "https://github.com/jamonserrano/karma-calling"
+}

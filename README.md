@@ -1,2 +1,3 @@
-# bdd-calling
-Helper for calling/applying functions in BDD-style assertions
+# karma-calling
+Call functions in BDD-style assertions
+Based on http://stackoverflow.com/a/34590246
