@@ -1,6 +1,6 @@
 {
   "name": "karma-calling",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "description": "Test function parameters and errors in BDD-style assertions",
   "main": "index.js",
   "repository": {
@@ -28,8 +28,8 @@
     "xo": "^0.16.0"
   },
   "scripts": {
-	"lint": "xo karma-calling.js --env=amd",
+    "lint": "xo karma-calling.js --env=amd",
     "test": "npm run lint && ava",
-	"watch": "npm run lint && ava --watch"
+    "watch": "npm run lint && ava --watch"
   }
 }
