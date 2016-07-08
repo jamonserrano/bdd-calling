@@ -21,5 +21,12 @@
   "bugs": {
     "url": "https://github.com/jamonserrano/karma-calling/issues"
   },
-  "homepage": "https://github.com/jamonserrano/karma-calling"
+  "homepage": "https://github.com/jamonserrano/karma-calling",
+  "devDependencies": {
+    "ava": "^0.15.2",
+    "xo": "^0.16.0"
+  },
+  "scripts": {
+	  "test": "xo karma-calling.js --env=amd && ava"
+  }
 }
