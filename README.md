@@ -3,6 +3,7 @@ Test function parameters and errors in BDD-style assertions
 
 Based on http://stackoverflow.com/a/34590246
 
+
 ## Installation
 
 Install the plugin from npm:
@@ -20,11 +21,12 @@ module.exports = function(config){
     frameworks: ['mocha', 'calling'],
     // ...
 ```
-You can also use karma-calling in the browser if you want to:
+You can also use karma-calling in the browser:
 
 ```javascript
 <script src="karma-calling.js"></script>
 ```
+
 
 ## Usage
 
@@ -35,6 +37,7 @@ Instead of wrapping your functions in a lambda, you can use more natural BDD-sty
 ```javascript
   // Instead of
   expect(function () { myFunction.apply(myObject, [param1, param2]); }).to.throw();
+  
   // You can use
   expect(calling(myFunction).on(myObject).with(param1, param2)).to.throw();
 ```
@@ -43,9 +46,13 @@ Instead of wrapping your functions in a lambda, you can use more natural BDD-sty
 ```javascript
   // Instead of
   function () { myFunction.apply(myObject, [param1, param2]); }.should.throw();
+  
   // You can use
   calling(myFunction).on(myObject).with(param1, param2).should.throw();
 ```
+
+> If you prefer you can swap the order of `on` and `with`, it doesn't matter.
+
 
 ## API
 
@@ -59,7 +66,9 @@ Optional binding context.
 
 ### .with(param1, ..., paramN)
 
-Parameters (use `with()` for no parameters)
+Optional parameters.
+
+
 
 ## License
 

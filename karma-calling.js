@@ -1,26 +1,30 @@
 (function () {
-    var calling = function (func) {
-        var ctx = arguments[1] || null;
-        return {
-            on: function (context) {
-                return calling(func, context);
-            },
-            with: function () {
-                var args = Array.prototype.slice.call(arguments);
-                return function () {
-                    func.apply(ctx, args);
-                };
-            }
-        };
-    };
+	function calling(target, ctx, args) {
+		// proxy function
+		var proxy = function () {
+			target.apply(ctx, args);
+		};
 
-    if (typeof exports === "object" && typeof module === "object") {
-        module.exports = calling;
-    } else if (typeof define === "function" && define.amd) {
-        define("calling", [], function () {
-            return calling;
-        });
-    } else {
-        this["calling"] = calling;
-    }
+		// apply new context, keep arguments
+		proxy.on = function (context) {
+			return calling(target, context, args);
+		};
+
+		// apply new arguments, keep context
+		proxy.with = function () {
+			return calling(target, ctx, Array.prototype.slice.call(arguments));
+		};
+
+		return proxy;
+	}
+
+	if (typeof exports === 'object' && typeof module === 'object') {
+		module.exports = calling;
+	} else if (typeof define === 'function' && define.amd) {
+		define('calling', [], function () {
+			return calling;
+		});
+	} else {
+		this.calling = calling;
+	}
 }).call(this);
