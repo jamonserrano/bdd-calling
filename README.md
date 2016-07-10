@@ -6,13 +6,13 @@ Based on http://stackoverflow.com/a/34590246
 
 ## Installation
 
-Install the plugin from npm:
+1\. Install the plugin from npm:
 
 ```sh
 $ npm install karma-calling --save-dev
 ```
 
-Add `calling` to the `frameworks` array in your Karma configuration:
+2\. Add `calling` to the `frameworks` array in your Karma configuration:
 
 ```javascript
 module.exports = function(config){
@@ -21,37 +21,48 @@ module.exports = function(config){
     frameworks: ['mocha', 'calling'],
     // ...
 ```
-You can also use karma-calling in the browser:
+---
+If you are not using Karma, you can still use `calling` with import or require:
 
 ```javascript
-<script src="karma-calling.js"></script>
+import calling from 'karma-calling';
+```
+
+```javascript
+var calling = require('karma-calling');
+```
+
+Or just by inserting the script in your page:
+
+```javascript
+<script src='karma-calling.js'></script>
 ```
 
 
 ## Usage
 
-Instead of wrapping your functions in a lambda, you can use more natural BDD-style chaining:
+Instead of wrapping your functions in an anonymous function, use a more natural BDD-style chaining:
 
 ### Expect
 
 ```javascript
   // Instead of
-  expect(function () { myFunction.apply(myObject, [param1, param2]); }).to.throw();
+  expect(function () { myFunction.apply(myObject, [param1, param2]); }).to.throw(Error);
   
   // You can use
-  expect(calling(myFunction).on(myObject).with(param1, param2)).to.throw();
+  expect(calling(myFunction).on(myObject).with(param1, param2)).to.throw(Error);
 ```
 
 ### Should
 ```javascript
   // Instead of
-  function () { myFunction.apply(myObject, [param1, param2]); }.should.throw();
+  function () { myFunction.apply(myObject, [param1, param2]); }.should.throw(Error);
   
   // You can use
-  calling(myFunction).on(myObject).with(param1, param2).should.throw();
+  calling(myFunction).on(myObject).with(param1, param2).should.throw(Error);
 ```
 
-> If you prefer you can swap the order of `on` and `with`, it doesn't matter.
+> You can swap the order of `on` and `with` according to your preference.
 
 
 ## API
